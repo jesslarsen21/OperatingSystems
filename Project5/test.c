@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+
+int main()
+{
+	int f;
+	int ret;	
+  f = open("/dev/sleepy0",O_RDWR);
+	int i = 30;
+	int* iptr = &i;
+	printf("before\n");
+	ret = write(f, iptr, sizeof(int));
+	printf("after\n");
+	printf("Return value is: %i \n", ret); 
+	return 0;
+}
